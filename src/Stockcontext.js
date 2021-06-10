@@ -6,12 +6,12 @@ export const Stockstore = (props) => {
 
     const [val, setVal] = useState([
         {
-            u1: 0,
-            v1: 0
+            u: 0,
+            v: 0
         },
         {
-            u2: 0,
-            v2: 0
+            u: 0,
+            v: 0
         }
     ]);
 

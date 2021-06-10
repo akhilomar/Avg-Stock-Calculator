@@ -16,9 +16,17 @@ const Calculator = () => {
 
         setShow(true)
 
-        let res1 = parseInt(val[0].u1 * val[0].v1) + parseInt(val[1].u2 * val[1].v2);
-        let res2 = parseInt(val[0].u1) + parseInt(val[1].u2)
+        let res1 = 0;
+        let res2 = 0;
         let res = 0;
+
+        for(let i = 0; i < val.length; i++){
+            res1 += parseInt(val[i].u * val[i].v)
+            res2 += parseInt(val[i].u)
+        }
+
+      
+       
 
         if(res2 !== 0)
             res = parseInt(res1)/parseInt(res2);
@@ -26,7 +34,7 @@ const Calculator = () => {
         
 
         setTotalunit(res2);
-        setPrice(res);
+        setPrice(res.toFixed(2));
         setTotal(res1);
     }
 
@@ -37,9 +45,11 @@ const Calculator = () => {
                 <button onClick = {handleCalculate}>Calculate</button>
                 <button onClick = {() => setShow(false)}>Reset</button>
             </div>
+            <br/>
+            <br/>
             {show ? 
             
-            <div>
+            <div style = {{"display":"flex", "justifyContent": "space-around"}}>
                 <h2>Total Units: {totalunit}</h2>
                 <h2>Average Price: {price}</h2>
                 <h2>Total Amount : {total}</h2>
